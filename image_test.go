@@ -102,10 +102,26 @@ func TestNew(t *testing.T) {
 			}
 		}
 	}
+}
 
+func TestUnsuccessfulNew(t *testing.T) {
 	_, err1 := New("test/test123")
-	if err1 != nil {
+	if err1 == nil {
+		t.Error("error in new image unknown format")
+	}
+
+	_, err2 := New("test/test123.png")
+	if err2 == nil {
 		t.Error("error in new image path not found")
+	}
+}
+
+func TestUnsuccessfulWrite(t *testing.T) {
+	img, _ := New("test/test.jpg")
+	err := img.WriteToFile("test/bad_path")
+
+	if err == nil {
+		t.Error("error in write image unknown format")
 	}
 }
 

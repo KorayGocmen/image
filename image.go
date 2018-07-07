@@ -148,19 +148,22 @@ func (img *Image) WriteToFile(outputPath string) error {
 		}
 	}
 
-	fd, err := os.Create(outputPath)
-	if err != nil {
-		return err
-	}
-
 	s := strings.Split(outputPath, ".")
 	imgType := s[len(s)-1]
 
 	switch imgType {
-	case "jpeg", "jpg":
-		jpeg.Encode(fd, cimg, nil)
-	case "png":
-		png.Encode(fd, cimg)
+	case "jpeg", "jpg", "png":
+		fd, err := os.Create(outputPath)
+		if err != nil {
+			return err
+		}
+
+		switch imgType {
+		case "jpeg", "jpg":
+			jpeg.Encode(fd, cimg, nil)
+		case "png":
+			png.Encode(fd, cimg)
+		}
 	default:
 		return errors.New("unknown image type")
 	}
