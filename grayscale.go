@@ -16,9 +16,9 @@ func (img *Image) Grayscale(algorithm int) *Image {
 				pixel := img.Pixels[rowIndex][colIndex]
 
 				var gray int
-				if algorithm == GRAYSCALE_LUMA {
+				if algorithm == GrayscaleLuma {
 					gray = int(float32(pixel.R)*0.2126 + float32(pixel.G)*0.7152 + float32(pixel.B)*0.0722)
-				} else if algorithm == GRAYSCALE_DESATURATION {
+				} else if algorithm == GrayscaleDesaturation {
 					gray = int((max(pixel.R, pixel.G, pixel.B) + min(pixel.R, pixel.G, pixel.B)) / 2)
 				} else {
 					gray = int((pixel.R + pixel.G + pixel.B) / 3)

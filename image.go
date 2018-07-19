@@ -1,7 +1,6 @@
 // Package image implements a simple library for image operations.
 // The library can work with pngs or jpgs. Same functions can be
 // used for both of those image types.
-
 package image
 
 import (
@@ -34,10 +33,12 @@ type Image struct {
 	_Image image.Image
 }
 
+// GrayscaleAverage, GrayscaleLuma, GrayscaleDesaturation
+// are used by grayscale to choose between algorithms
 const (
-	GRAYSCALE_AVERAGE      = 0
-	GRAYSCALE_LUMA         = 1
-	GRAYSCALE_DESATURATION = 2
+	GrayscaleAverage      = 0
+	GrayscaleLuma         = 1
+	GrayscaleDesaturation = 2
 )
 
 // Get pixel value with key name

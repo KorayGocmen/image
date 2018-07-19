@@ -22,17 +22,17 @@ import (
 func main() {
 	img, _ := image.New("test/test.jpg")
 
-	err1 := img.Grayscale(image.GRAYSCALE_AVERAGE).WriteToFile("test/grayscale_average_method.jpg")
+	err1 := img.Grayscale(image.GrayscaleAverage).WriteToFile("test/grayscale_average_method.jpg")
 	if err1 != nil {
 		log.Fatal(err1)
 	}
 
-	err2 := img.Grayscale(image.GRAYSCALE_DESATURATION).WriteToFile("test/grayscale_saturation_method.jpg")
+	err2 := img.Grayscale(image.GrayscaleDesaturation).WriteToFile("test/grayscale_saturation_method.jpg")
 	if err2 != nil {
 		log.Fatal(err2)
 	}
 
-	err3 := img.Grayscale(image.GRAYSCALE_LUMA).WriteToFile("test/grayscale_luma_method.jpg")
+	err3 := img.Grayscale(image.GrayscaleLuma).WriteToFile("test/grayscale_luma_method.jpg")
 	if err3 != nil {
 		log.Fatal(err3)
 	}
