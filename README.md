@@ -1,6 +1,9 @@
 # `image`
 
  Package image implements a simple library for image operations. The library can work with pngs or jpgs. Same functions can be used for both of those image types.
+ 
+Read more here:
+http://www.koraygocmen.com/writing-an-image-manipulation-library-in-go-part-1
 
 98% Test coverage
 
